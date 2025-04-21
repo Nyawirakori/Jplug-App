@@ -1,0 +1,208 @@
+{
+  "counties": [
+    { "id": 1, "name": "Mombasa" },
+    { "id": 2, "name": "Kwale" },
+    { "id": 3, "name": "Kilifi" },
+    { "id": 4, "name": "Tana River" },
+    { "id": 5, "name": "Lamu" },
+    { "id": 6, "name": "Taita-Taveta" },
+    { "id": 7, "name": "Garissa" },
+    { "id": 8, "name": "Wajir" },
+    { "id": 9, "name": "Mandera" },
+    { "id": 10, "name": "Marsabit" },
+    { "id": 11, "name": "Isiolo" },
+    { "id": 12, "name": "Meru" },
+    { "id": 13, "name": "Tharaka-Nithi" },
+    { "id": 14, "name": "Embu" },
+    { "id": 15, "name": "Kitui" },
+    { "id": 16, "name": "Machakos" },
+    { "id": 17, "name": "Makueni" },
+    { "id": 18, "name": "Nyandarua" },
+    { "id": 19, "name": "Nyeri" },
+    { "id": 20, "name": "Kirinyaga" },
+    { "id": 21, "name": "Murang’a" },
+    { "id": 22, "name": "Kiambu" },
+    { "id": 23, "name": "Turkana" },
+    { "id": 24, "name": "West Pokot" },
+    { "id": 25, "name": "Samburu" },
+    { "id": 26, "name": "Trans Nzoia" },
+    { "id": 27, "name": "Uasin Gishu" },
+    { "id": 28, "name": "Elgeyo-Marakwet" },
+    { "id": 29, "name": "Nandi" },
+    { "id": 30, "name": "Baringo" },
+    { "id": 31, "name": "Laikipia" },
+    { "id": 32, "name": "Nakuru" },
+    { "id": 33, "name": "Narok" },
+    { "id": 34, "name": "Kajiado" },
+    { "id": 35, "name": "Kericho" },
+    { "id": 36, "name": "Bomet" },
+    { "id": 37, "name": "Kakamega" },
+    { "id": 38, "name": "Vihiga" },
+    { "id": 39, "name": "Bungoma" },
+    { "id": 40, "name": "Busia" },
+    { "id": 41, "name": "Siaya" },
+    { "id": 42, "name": "Kisumu" },
+    { "id": 43, "name": "Homa Bay" },
+    { "id": 44, "name": "Migori" },
+    { "id": 45, "name": "Kisii" },
+    { "id": 46, "name": "Nyamira" },
+    { "id": 47, "name": "Nairobi" }
+  ],
+  "serviceProviders": [
+    {
+      "id": 1,
+      "name": "James Kamau",
+      "county": "Nairobi",
+      "service": "Plumber",
+      "phone": "0712345678"
+    },
+    {
+      "id": 2,
+      "name": "Sarah Wanjiku",
+      "county": "Nairobi",
+      "service": "Electrician",
+      "phone": "0711122233"
+    },
+    {
+      "id": 3,
+      "name": "John Otieno",
+      "county": "Kisumu",
+      "service": "Plumber",
+      "phone": "0722456789"
+    },
+    {
+      "id": 4,
+      "name": "Beatrice Achieng",
+      "county": "Kisumu",
+      "service": "Electrician",
+      "phone": "0798765432"
+    },
+    {
+      "id": 5,
+      "name": "Peter Mwangi",
+      "county": "Kirinyaga",
+      "service": "Plumber",
+      "phone": "0700345678"
+    },
+    {
+      "id": 6,
+      "name": "Lucy Muthoni",
+      "county": "Kirinyaga",
+      "service": "Electrician",
+      "phone": "0745332211"
+    },
+    {
+      "id": 7,
+      "name": "Eric Mutwiri",
+      "county": "Embu",
+      "service": "Plumber",
+      "phone": "0756789012"
+    },
+    {
+      "id": 8,
+      "name": "Faith Karimi",
+      "county": "Embu",
+      "service": "Electrician",
+      "phone": "0711234567"
+    },
+    {
+      "id": 9,
+      "name": "Ahmed Salim",
+      "county": "Malindi",
+      "service": "Plumber",
+      "phone": "0700111222"
+    },
+    {
+      "id": 10,
+      "name": "Fatma Said",
+      "county": "Malindi",
+      "service": "Electrician",
+      "phone": "0799334455"
+    },
+    {
+      "id": 11,
+      "name": "Ali Mwinyi",
+      "county": "Mombasa",
+      "service": "Plumber",
+      "phone": "0722667788"
+    },
+    {
+      "id": 12,
+      "name": "Zainab Omar",
+      "county": "Mombasa",
+      "service": "Electrician",
+      "phone": "0788990011"
+    },
+    {
+      "id": 13,
+      "name": "Daniel Kiraitu",
+      "county": "Meru",
+      "service": "Plumber",
+      "phone": "0744556677"
+    },
+    {
+      "id": 14,
+      "name": "Nancy Kobia",
+      "county": "Meru",
+      "service": "Electrician",
+      "phone": "0733445566"
+    },
+    {
+      "id": 15,
+      "name": "Kevin Njoroge",
+      "county": "Kiambu",
+      "service": "Plumber",
+      "phone": "0712456789"
+    },
+    {
+      "id": 16,
+      "name": "Grace Wambui",
+      "county": "Kiambu",
+      "service": "Electrician",
+      "phone": "0799345678"
+    },
+    {
+      "id": 17,
+      "name": "Samuel Muriuki",
+      "county": "Nyeri",
+      "service": "Plumber",
+      "phone": "0722789456"
+    },
+    {
+      "id": 18,
+      "name": "Diana Wanjiru",
+      "county": "Nyeri",
+      "service": "Electrician",
+      "phone": "0756677889"
+    },
+    {
+      "id": 19,
+      "name": "George Kariuki",
+      "county": "Nyandarua",
+      "service": "Plumber",
+      "phone": "0700123456"
+    },
+    {
+      "id": 20,
+      "name": "Esther Njeri",
+      "county": "Nyandarua",
+      "service": "Electrician",
+      "phone": "0733441122"
+    },
+    {
+      "id": 21,
+      "name": "Brian Odhiambo",
+      "county": "Migori",
+      "service": "Plumber",
+      "phone": "0744556677"
+    },
+    {
+      "id": 22,
+      "name": "Janet Atieno",
+      "county": "Migori",
+      "service": "Electrician",
+      "phone": "0711223344"
+    }
+  ],
+  "bookings": []
+}
