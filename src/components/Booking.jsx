@@ -53,7 +53,7 @@ function Booking({ county, service }) {
           </p>
         )
       ) : (
-        <p>Please select both county and service to see providers.</p>
+        <p></p>
       )}
     </div>
   );

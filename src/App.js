@@ -1,7 +1,9 @@
 import "./App.css";
 import NavBar from "./components/NavBar";
+import Header from "./components/Header";
 import Booking from "./components/Booking";
 import React, { useState, useEffect } from "react";
+import Steps from "./components/Steps";
 
 export default function App() {
   const [counties, setCounties] = useState([]);
@@ -19,6 +21,8 @@ export default function App() {
   return (
     <div className="container my-4">
       <NavBar />
+      <Header />
+      <Steps />
       <h2 className="text-center mb-4">Book a Service Provider</h2>
 
       <div className="row mb-4">
