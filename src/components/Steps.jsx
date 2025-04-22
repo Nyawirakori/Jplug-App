@@ -30,7 +30,7 @@ export default function Steps() {
             className="mb-3"
           />
           <h5>Book</h5> 
-          <p>Book your appointment</p>
+          <p>Schedule the most suitable time for you</p>
         </div>
       </div>
     </div>

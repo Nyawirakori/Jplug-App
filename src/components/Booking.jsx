@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-function Booking({ county, service }) {
+function Booking({ county, service, time, date }) {
   const [providers, setProviders] = useState([]);
+  const [bookingConfirmation, setBookingConfirmation] = useState(null);
 
   useEffect(() => {
     if (county && service) {
-      fetch("http://localhost:4000/serviceProviders") //fetching service providers
+      fetch("http://localhost:4000/serviceProviders")
         .then((res) => res.json())
         .then((data) => {
           const filtered = data.filter(
@@ -19,14 +20,27 @@ function Booking({ county, service }) {
     }
   }, [county, service]);
 
-  //POST Request - Adding bookings to db.json
   const handleBook = async (provider) => {
     const bookingTime = new Date().toLocaleString();
-    alert(
-      `Booked ${provider.name} (${provider.phone}) in ${provider.county} at ${bookingTime}`
-    );
+
+    if (!time || !date) {
+      setBookingConfirmation({
+        error: "Please select both a time slot and a date.",
+      });
+      return;
+    }
+
+    setBookingConfirmation({
+      providerName: provider.name,
+      phone: provider.phone,
+      county: provider.county,
+      timeSlot: time,
+      bookingDate: date,
+      bookingTime: bookingTime,
+    });
+
     try {
-      return await fetch("http://localhost:4000/bookings", {
+      await fetch("http://localhost:4000/bookings", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,12 +49,16 @@ function Booking({ county, service }) {
         body: JSON.stringify({
           providerName: provider.name,
           county: provider.county,
-          time: bookingTime,
-        })
+          timeSlot: time,
+          bookingDate: date,
+          bookingTime: bookingTime,
+        }),
       });
     } catch (error) {
-      throw new Error(error);
-    } finally {
+      console.error(error);
+      setBookingConfirmation({
+        error: "Failed to complete booking. Please try again.",
+      });
     }
   };
 
@@ -73,8 +91,35 @@ function Booking({ county, service }) {
             No {service.toLowerCase()}s available in {county}.
           </p>
         )
-      ) : (
-        <p></p>
+      ) : null}
+
+      {bookingConfirmation && (
+        <div className="mt-4">
+          {bookingConfirmation.error ? (
+            <div className="alert alert-danger">
+              {bookingConfirmation.error}
+            </div>
+          ) : (
+            <div className="card border-success">
+              <div className="card-body">
+                <h5 className="card-title text-success">Booking Confirmed!</h5>
+                <p className="card-text">
+                  <strong>Provider:</strong> {bookingConfirmation.providerName}
+                  <br />
+                  <strong>Phone:</strong> {bookingConfirmation.phone}
+                  <br />
+                  <strong>County:</strong> {bookingConfirmation.county}
+                  <br />
+                  <strong>Date:</strong> {bookingConfirmation.bookingDate}
+                  <br />
+                  <strong>Time Slot:</strong> {bookingConfirmation.timeSlot}
+                  <br />
+                  <strong>Booked At:</strong> {bookingConfirmation.bookingTime}
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
       )}
     </div>
   );
