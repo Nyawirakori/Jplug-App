@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./components/About";
 import ContactUs from "./components/ContactUs";
+import BookingPage from './components/BookingPage';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/contact",
     element: <ContactUs/>
+  },
+  {
+    path:"/book",
+    element:<BookingPage />
   }
 ])
 

@@ -5,7 +5,7 @@ function Booking({ county, service }) {
 
   useEffect(() => {
     if (county && service) {
-      fetch("http://localhost:4000/serviceProviders")//fetching service providers
+      fetch("http://localhost:4000/serviceProviders") //fetching service providers
         .then((res) => res.json())
         .then((data) => {
           const filtered = data.filter(
@@ -19,8 +19,29 @@ function Booking({ county, service }) {
     }
   }, [county, service]);
 
-  const handleBook = (provider) => {
-    alert(`Booked ${provider.name} (${provider.phone}) in ${provider.county}`);
+  //POST Request - Adding bookings to db.json
+  const handleBook = async (provider) => {
+    const bookingTime = new Date().toLocaleString();
+    alert(
+      `Booked ${provider.name} (${provider.phone}) in ${provider.county} at ${bookingTime}`
+    );
+    try {
+      return await fetch("http://localhost:4000/bookings", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          providerName: provider.name,
+          county: provider.county,
+          time: bookingTime,
+        })
+      });
+    } catch (error) {
+      throw new Error(error);
+    } finally {
+    }
   };
 
   return (

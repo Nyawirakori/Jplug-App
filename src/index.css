@@ -24,3 +24,12 @@ code {
   color: blue;
   border-bottom: 2px solid blue;
 }
+
+.header-section {
+  margin-top: 20px; 
+  margin-bottom:5px;
+}
+
+.navbar-container {
+  margin-bottom: 20px;
+}
