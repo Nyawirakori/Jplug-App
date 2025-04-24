@@ -11,10 +11,7 @@ export default function NavBar({ darkMode, setDarkMode }) {
       }`}
     >
       <div className="container-fluid d-flex justify-content-between align-items-center">
-        {/* Left Side - JPLUG App */}
         <div className="fw-bold text-primary">JPLUG App</div>
-
-        {/* Right Side - NavLinks and Button */}
         <div className="d-flex align-items-center gap-3">
           <NavLink className="nav-link" to="/">
             Home

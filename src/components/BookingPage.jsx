@@ -33,8 +33,9 @@ function BookingPage() {
   };
 
   return (
+    <>
+    <NavBar />
     <div className="container">
-      <NavBar />
      <Steps />
       <h2 className="text-center mb-4">Book a Service Provider</h2>
 
@@ -92,6 +93,7 @@ function BookingPage() {
         <Booking county={selectedCounty} service={selectedService} />
       )}
     </div>
+    </>
   );
 }
 

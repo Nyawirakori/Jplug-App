@@ -171,7 +171,7 @@ export default function Booking({ county, service }) {
       )}
 
       {selectedBookingDetails && (
-        <div className="card shadow-sm ">
+       <div className="card shadow-sm p-4 mx-auto"style={{ maxWidth: "400px" }}>
           <h3>Booking Confirmation</h3>
           <p>
             <strong>Service Provider:</strong>{" "}
