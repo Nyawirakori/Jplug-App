@@ -1,128 +1,205 @@
 import React, { useEffect, useState } from "react";
 
-function Booking({ county, service, time, date }) {
+export default function Booking({ county, service }) {
   const [providers, setProviders] = useState([]);
-  const [bookingConfirmation, setBookingConfirmation] = useState(null);
+  const [selectedBookingDetails, setSelectedBookingDetails] = useState(null);
+  const [activeBookingCardId, setActiveBookingCardId] = useState(null);
+  const [cardSpecificData, setCardSpecificData] = useState({});
+  const [minDate] = useState(new Date().toISOString().split("T")[0]);
+  const [bookingError, setBookingError] = useState(null);
+  const [showProviderCards, setShowProviderCards] = useState(true);
 
   useEffect(() => {
-    if (county && service) {
-      fetch("http://localhost:4000/serviceProviders")
-        .then((res) => res.json())
-        .then((data) => {
-          const filtered = data.filter(
-            (p) => p.county === county && p.service === service
-          );
-          setProviders(filtered);
-        })
-        .catch((err) => console.error("Error fetching providers:", err));
-    } else {
-      setProviders([]);
-    }
+    fetch("http://localhost:4000/serviceProviders")
+      .then((res) => res.json())
+      .then((data) => {
+        const filtered = data.filter(
+          (p) => p.county === county && p.service === service
+        );
+        setProviders(filtered);
+      })
+      .catch((error) => {
+        console.error("Error fetching providers:", error);
+      });
   }, [county, service]);
 
-  const handleBook = async (provider) => {
-    const bookingTime = new Date().toLocaleString();
-
-    if (!time || !date) {
-      setBookingConfirmation({
-        error: "Please select both a time slot and a date.",
-      });
-      return;
-    }
-
-    setBookingConfirmation({
-      providerName: provider.name,
-      phone: provider.phone,
-      county: provider.county,
-      timeSlot: time,
-      bookingDate: date,
-      bookingTime: bookingTime,
-    });
-
-    try {
-      await fetch("http://localhost:4000/bookings", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          providerName: provider.name,
-          county: provider.county,
-          timeSlot: time,
-          bookingDate: date,
-          bookingTime: bookingTime,
-        }),
-      });
-    } catch (error) {
-      console.error(error);
-      setBookingConfirmation({
-        error: "Failed to complete booking. Please try again.",
-      });
-    }
+  const handleDateChange = (providerId, date) => {
+    setCardSpecificData((prev) => ({
+      ...prev,
+      [providerId]: { ...prev[providerId], date },
+    }));
   };
 
+  const handleTimeChange = (providerId, time) => {
+    setCardSpecificData((prev) => ({
+      ...prev,
+      [providerId]: { ...prev[providerId], time },
+    }));
+  };
+
+  const handleBook = (provider) => {
+    const selected = cardSpecificData[provider.id];
+    if (!selected?.date || !selected?.time) {
+      setBookingError("Please select a valid date and time.");
+      return;
+    }
+    setBookingError(null);
+
+    const bookingData = {
+      providerId: provider.id,
+      providerName: provider.name,
+      service: provider.service,
+      county: county,
+      bookingDate: selected.date,
+      timeSlot: selected.time,
+      bookingTime: new Date().toLocaleString(),
+    };
+
+    fetch("http://localhost:4000/bookings", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(bookingData),
+    })
+      .then((res) => res.json())
+      .then((confirmation) => {
+        setSelectedBookingDetails(confirmation);
+        setShowProviderCards(false);
+      })
+      .catch((error) => {
+        console.error("Error creating booking:", error);
+        setBookingError(error.message);
+      });
+  };
+
+  const handleCancelBooking = (booking) => {
+    fetch(`http://localhost:4000/bookings/${booking.id}`, {
+      method: "DELETE",
+    })
+      .then(() => {
+        setSelectedBookingDetails(null);
+        setShowProviderCards(true);
+      })
+      .catch((err) => console.error("Error cancelling booking:", err));
+  };
+
+  const timeSlots = ["8-10 AM", "11-1 PM", "2-4 PM"];
+
   return (
-    <div>
-      {county && service ? (
-        providers.length > 0 ? (
+    <div className="mt-4">
+      {bookingError && <div className="alert alert-danger">{bookingError}</div>}
+
+      {showProviderCards && (
+        <>
+          <h4 className="mb-3">
+            Available {service}s in {county}
+          </h4>
+
           <div className="row">
             {providers.map((provider) => (
-              <div key={provider.id} className="col-md-4 mb-4">
-                <div className="card shadow-sm">
-                  <div className="card-body">
-                    <h5 className="card-title">{provider.name}</h5>
-                    <p className="card-text">
-                      <strong>Phone:</strong> {provider.phone}
-                    </p>
-                    <button
-                      className="btn btn-primary"
-                      onClick={() => handleBook(provider)}
-                    >
-                      Book
-                    </button>
+              <div className="col-md-4 mb-4" key={provider.id}>
+                <div className="card shadow-sm h-100">
+                  <div className="card-body d-flex flex-column justify-content-between">
+                    <div>
+                      <h5>{provider.name}</h5>
+                      <p>
+                        <strong>Service:</strong> {provider.service}
+                      </p>
+                      <p>
+                        <strong>Charge:</strong> KES {provider.price}
+                      </p>
+                      <p>
+                        <strong>Phone:</strong> {provider.phone}
+                      </p>
+                    </div>
+
+                    {activeBookingCardId === provider.id ? (
+                      <div className="mb-2">
+                        <input
+                          type="date"
+                          className="form-control mb-2"
+                          value={cardSpecificData[provider.id]?.date || ""}
+                          min={minDate}
+                          onChange={(e) =>
+                            handleDateChange(provider.id, e.target.value)
+                          }
+                        />
+                        <select
+                          className="form-select"
+                          value={cardSpecificData[provider.id]?.time || ""}
+                          onChange={(e) =>
+                            handleTimeChange(provider.id, e.target.value)
+                          }
+                        >
+                          <option value="">Select Time</option>
+                          {timeSlots.map((slot) => (
+                            <option key={slot} value={slot}>
+                              {slot}
+                            </option>
+                          ))}
+                        </select>
+                        <button
+                          className="btn btn-primary mt-2"
+                          onClick={() => handleBook(provider)}
+                        >
+                          Confirm Booking
+                        </button>
+                        <button
+                          className="btn btn-secondary mt-2 ms-2"
+                          onClick={() => setActiveBookingCardId(null)}
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        className="btn btn-outline-primary mt-2"
+                        onClick={() => setActiveBookingCardId(provider.id)}
+                      >
+                        Book Now
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
             ))}
           </div>
-        ) : (
-          <p>
-            No {service.toLowerCase()}s available in {county}.
-          </p>
-        )
-      ) : null}
+        </>
+      )}
 
-      {bookingConfirmation && (
-        <div className="mt-4">
-          {bookingConfirmation.error ? (
-            <div className="alert alert-danger">
-              {bookingConfirmation.error}
-            </div>
-          ) : (
-            <div className="card border-success">
-              <div className="card-body">
-                <h5 className="card-title text-success">Booking Confirmed!</h5>
-                <p className="card-text">
-                  <strong>Provider:</strong> {bookingConfirmation.providerName}
-                  <br />
-                  <strong>Phone:</strong> {bookingConfirmation.phone}
-                  <br />
-                  <strong>County:</strong> {bookingConfirmation.county}
-                  <br />
-                  <strong>Date:</strong> {bookingConfirmation.bookingDate}
-                  <br />
-                  <strong>Time Slot:</strong> {bookingConfirmation.timeSlot}
-                  <br />
-                  <strong>Booked At:</strong> {bookingConfirmation.bookingTime}
-                </p>
-              </div>
-            </div>
-          )}
+      {selectedBookingDetails && (
+        <div className="card shadow-sm p-3 mt-4">
+          <h3>Booking Confirmation</h3>
+          <p>
+            <strong>Service Provider:</strong>{" "}
+            {selectedBookingDetails.providerName}
+          </p>
+          <p>
+            <strong>Service Type:</strong> {selectedBookingDetails.service}
+          </p>
+          <p>
+            <strong>Charge:</strong> KES{" "}
+            {
+              providers.find((p) => p.id === selectedBookingDetails.providerId)
+                ?.price
+            }
+          </p>
+          <p>
+            <strong>Date:</strong> {selectedBookingDetails.bookingDate}
+          </p>
+          <p>
+            <strong>Time Slot:</strong> {selectedBookingDetails.timeSlot}
+          </p>
+          <button
+            className="btn btn-danger"
+            onClick={() => handleCancelBooking(selectedBookingDetails)}
+          >
+            Cancel Booking
+          </button>
         </div>
       )}
     </div>
   );
 }
-
-export default Booking;

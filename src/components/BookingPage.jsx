@@ -1,94 +1,94 @@
 import React, { useState, useEffect } from "react";
 import Booking from "./Booking";
 import NavBar from "./NavBar";
-import SampleProviders from "./SampleProviders";
 
 function BookingPage() {
   const [counties, setCounties] = useState([]);
   const [selectedCounty, setSelectedCounty] = useState("");
   const [selectedService, setSelectedService] = useState("");
-  const [selectedTime, setSelectedTime] = useState("");
-  const [selectedDate, setSelectedDate] = useState("");
+  const [showProviders, setShowProviders] = useState(false);
+
   const services = ["Plumber", "Electrician"];
-  const timeSlots = ["8-10 AM", "11-1 PM", "2-4 PM"];
 
   useEffect(() => {
+    fetchCounties();
+    if (selectedCounty && selectedService) setShowProviders(true);
+    else setShowProviders(false);
+  }, [selectedCounty, selectedService]);
+
+  function fetchCounties() {
     fetch("http://localhost:4000/counties")
       .then((res) => res.json())
       .then((data) => setCounties(data))
-      .catch((err) => console.error("Error fetching counties:", err));
-  }, []);
+      .catch((error) => {
+        console.error("Error fetching counties:", error);
+      });
+  }
+
+  const resetAll = () => {
+    setSelectedCounty("");
+    setSelectedService("");
+    setShowProviders(false);
+  };
 
   return (
-    <div className="container my-4">
+    <div className="container my-5">
       <NavBar />
-      <SampleProviders />
       <h2 className="text-center mb-4">Book a Service Provider</h2>
-      <div className="row mb-4">
-        <div className="col-md-6">
-          <label>Choose County:</label>
-          <select
-            className="form-control"
-            value={selectedCounty}
-            onChange={(e) => setSelectedCounty(e.target.value)}
-          >
-            <option value="">Select County</option>
-            {counties.map((county) => (
-              <option key={county.id} value={county.name}>
-                {county.name}
-              </option>
-            ))}
-          </select>
-        </div>
 
-        <div className="col-md-6">
-          <label>Choose Service:</label>
-          <select
-            className="form-control"
-            value={selectedService}
-            onChange={(e) => setSelectedService(e.target.value)}
-          >
-            <option value="">Select Service</option>
-            {services.map((service, index) => (
-              <option key={index} value={service}>
-                {service}
-              </option>
-            ))}
-          </select>
-        </div>
+      {/* Booking Filter Section */}
+      <div className="card shadow-sm p-4">
+        <div className="row align-items-end">
+          <div className="col-md-4 mb-3">
+            <label className="form-label fw-bold">Service Type</label>
+            <div className="d-flex gap-2">
+              {services.map((s) => (
+                <button
+                  key={s}
+                  className={`btn ${
+                    selectedService === s
+                      ? "btn-success"
+                      : "btn-outline-primary"
+                  }`}
+                  onClick={() => setSelectedService(s)}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+          </div>
 
-        <div className="col-md-6">
-          <label>Choose Time Slot:</label>
-          <select
-            className="form-control"
-            value={selectedTime}
-            onChange={(e) => setSelectedTime(e.target.value)}
-          >
-            <option value="">Select Time Slot</option>
-            {timeSlots.map((slot, index) => (
-              <option key={index} value={slot}>
-                {slot}
-              </option>
-            ))}
-          </select>
-        </div>
+          <div className="col-md-3 mb-3">
+            <label className="form-label fw-bold">Select County</label>
+            <select
+              className="form-select"
+              value={selectedCounty}
+              onChange={(e) => setSelectedCounty(e.target.value)}
+            >
+              <option value="">Select</option>
+              {counties.map((c) => (
+                <option key={c.id} value={c.name}>
+                  {c.name}
+                </option>
+              ))}
+            </select>
+          </div>
 
-        <div className="col-md-6">
-          <label>Choose Date:</label>
-          <input
-            type="date"
-            className="form-control"
-            value={selectedDate}
-            onChange={(e) => setSelectedDate(e.target.value)}
-          />
+          <div className="col-md-3 mb-3">
+            <button
+              className="btn btn-outline-secondary w-100"
+              onClick={resetAll}
+            >
+              Reset All
+            </button>
+          </div>
         </div>
       </div>
-      <Booking
-        county={selectedCounty}
-        service={selectedService}
-        time={selectedTime}
-        date={selectedDate}
-      />
+
+      {/* Booking Form */}
+      {showProviders && (
+        <Booking county={selectedCounty} service={selectedService} />
+      )}
     </div>
   );
 }

@@ -195,204 +195,438 @@
       "name": "James Kamau",
       "county": "Nairobi",
       "service": "Plumber",
-      "phone": "0712345678"
+      "phone": "0712345678",
+      "price": "1500-2000"
     },
     {
       "id": "2",
       "name": "Sarah Wanjiku",
       "county": "Nairobi",
       "service": "Electrician",
-      "phone": "0711122233"
+      "phone": "0711122233",
+      "price": "1700-2200"
     },
     {
       "id": "3",
       "name": "John Otieno",
       "county": "Kisumu",
       "service": "Plumber",
-      "phone": "0722456789"
+      "phone": "0722456789",
+      "price": "1600-2100"
     },
     {
       "id": "4",
       "name": "Beatrice Achieng",
       "county": "Kisumu",
       "service": "Electrician",
-      "phone": "0798765432"
+      "phone": "0798765432",
+      "price": "1400-1900"
     },
     {
       "id": "5",
       "name": "Peter Mwangi",
       "county": "Kirinyaga",
       "service": "Plumber",
-      "phone": "0700345678"
+      "phone": "0700345678",
+      "price": "1200-1700"
     },
     {
       "id": "6",
       "name": "Lucy Muthoni",
       "county": "Kirinyaga",
       "service": "Electrician",
-      "phone": "0745332211"
+      "phone": "0745332211",
+      "price": "1800-2300"
     },
     {
       "id": "7",
       "name": "Eric Mutwiri",
       "county": "Embu",
       "service": "Plumber",
-      "phone": "0756789012"
+      "phone": "0756789012",
+      "price": "1300-1800"
     },
     {
       "id": "8",
       "name": "Faith Karimi",
       "county": "Embu",
       "service": "Electrician",
-      "phone": "0711234567"
+      "phone": "0711234567",
+      "price": "1500-2000"
     },
     {
       "id": "9",
       "name": "Ahmed Salim",
       "county": "Malindi",
       "service": "Plumber",
-      "phone": "0700111222"
+      "phone": "0700111222",
+      "price": "1400-1900"
     },
     {
       "id": "10",
       "name": "Fatma Said",
       "county": "Malindi",
       "service": "Electrician",
-      "phone": "0799334455"
+      "phone": "0799334455",
+      "price": "1600-2100"
     },
     {
       "id": "11",
       "name": "Ali Mwinyi",
       "county": "Mombasa",
       "service": "Plumber",
-      "phone": "0722667788"
+      "phone": "0722667788",
+      "price": "1500-2200"
     },
     {
       "id": "12",
       "name": "Zainab Omar",
       "county": "Mombasa",
       "service": "Electrician",
-      "phone": "0788990011"
+      "phone": "0788990011",
+      "price": "1800-2300"
     },
     {
       "id": "13",
       "name": "Daniel Kiraitu",
       "county": "Meru",
       "service": "Plumber",
-      "phone": "0744556677"
+      "phone": "0744556677",
+      "price": "1300-1800"
     },
     {
       "id": "14",
       "name": "Nancy Kobia",
       "county": "Meru",
       "service": "Electrician",
-      "phone": "0733445566"
+      "phone": "0733445566",
+      "price": "1400-1900"
     },
     {
       "id": "15",
       "name": "Kevin Njoroge",
       "county": "Kiambu",
       "service": "Plumber",
-      "phone": "0712456789"
+      "phone": "0712456789",
+      "price": "1600-2100"
     },
     {
       "id": "16",
       "name": "Grace Wambui",
       "county": "Kiambu",
       "service": "Electrician",
-      "phone": "0799345678"
+      "phone": "0799345678",
+      "price": "1700-2200"
     },
     {
       "id": "17",
       "name": "Samuel Muriuki",
       "county": "Nyeri",
       "service": "Plumber",
-      "phone": "0722789456"
+      "phone": "0722789456",
+      "price": "1200-1700"
     },
     {
       "id": "18",
       "name": "Diana Wanjiru",
       "county": "Nyeri",
       "service": "Electrician",
-      "phone": "0756677889"
+      "phone": "0756677889",
+      "price": "1500-2000"
     },
     {
       "id": "19",
       "name": "George Kariuki",
       "county": "Nyandarua",
       "service": "Plumber",
-      "phone": "0700123456"
+      "phone": "0700123456",
+      "price": "1600-2100"
     },
     {
       "id": "20",
       "name": "Esther Njeri",
       "county": "Nyandarua",
       "service": "Electrician",
-      "phone": "0733441122"
+      "phone": "0733441122",
+      "price": "1700-2200"
     },
     {
       "id": "21",
       "name": "Brian Odhiambo",
       "county": "Migori",
       "service": "Plumber",
-      "phone": "0744556677"
+      "phone": "0744556677",
+      "price": "1300-1800"
     },
     {
       "id": "22",
       "name": "Janet Atieno",
       "county": "Migori",
       "service": "Electrician",
-      "phone": "0711223344"
+      "phone": "0711223344",
+      "price": "1400-1900"
+    },
+    {
+      "id": "23",
+      "name": "Michael Onyango",
+      "county": "Nairobi",
+      "service": "Plumber",
+      "phone": "0712457777",
+      "price": "1700-2200"
+    },
+    {
+      "id": "24",
+      "name": "Brenda Chebet",
+      "county": "Nairobi",
+      "service": "Electrician",
+      "phone": "0700111333",
+      "price": "1800-2300"
+    },
+    {
+      "id": "25",
+      "name": "Collins Oduor",
+      "county": "Kisumu",
+      "service": "Plumber",
+      "phone": "0788123456",
+      "price": "1400-2000"
+    },
+    {
+      "id": "26",
+      "name": "Mary Achieng",
+      "county": "Kisumu",
+      "service": "Electrician",
+      "phone": "0712678901",
+      "price": "1500-2100"
+    },
+    {
+      "id": "27",
+      "name": "Martin Wachira",
+      "county": "Kirinyaga",
+      "service": "Plumber",
+      "phone": "0722345678",
+      "price": "1200-1700"
+    },
+    {
+      "id": "28",
+      "name": "Agnes Wanjiku",
+      "county": "Kirinyaga",
+      "service": "Electrician",
+      "phone": "0733556677",
+      "price": "1800-2300"
+    },
+    {
+      "id": "29",
+      "name": "Andrew Njiru",
+      "county": "Embu",
+      "service": "Plumber",
+      "phone": "0700894567",
+      "price": "1400-1900"
+    },
+    {
+      "id": "30",
+      "name": "Christine Ndanu",
+      "county": "Embu",
+      "service": "Electrician",
+      "phone": "0799887766",
+      "price": "1500-2000"
+    },
+    {
+      "id": "31",
+      "name": "Musa Charo",
+      "county": "Malindi",
+      "service": "Plumber",
+      "phone": "0745123456",
+      "price": "1300-1800"
+    },
+    {
+      "id": "32",
+      "name": "Amina Salim",
+      "county": "Malindi",
+      "service": "Electrician",
+      "phone": "0711789654",
+      "price": "1500-2100"
+    },
+    {
+      "id": "33",
+      "name": "Ramadhan Yusuf",
+      "county": "Mombasa",
+      "service": "Plumber",
+      "phone": "0788345765",
+      "price": "1400-2000"
+    },
+    {
+      "id": "34",
+      "name": "Leila Noor",
+      "county": "Mombasa",
+      "service": "Electrician",
+      "phone": "0700119988",
+      "price": "1900-2400"
+    },
+    {
+      "id": "35",
+      "name": "Isaac Mutuma",
+      "county": "Meru",
+      "service": "Plumber",
+      "phone": "0755991122",
+      "price": "1300-1800"
+    },
+    {
+      "id": "36",
+      "name": "Ann Mwende",
+      "county": "Meru",
+      "service": "Electrician",
+      "phone": "0712340998",
+      "price": "1500-2000"
+    },
+    {
+      "id": "37",
+      "name": "Dennis Maina",
+      "county": "Kiambu",
+      "service": "Plumber",
+      "phone": "0700556677",
+      "price": "1600-2100"
+    },
+    {
+      "id": "38",
+      "name": "Susan Nyambura",
+      "county": "Kiambu",
+      "service": "Electrician",
+      "phone": "0733114455",
+      "price": "1700-2200"
+    },
+    {
+      "id": "39",
+      "name": "Charles Gichuki",
+      "county": "Nyeri",
+      "service": "Plumber",
+      "phone": "0788990044",
+      "price": "1400-1900"
+    },
+    {
+      "id": "40",
+      "name": "Angela Wairimu",
+      "county": "Nyeri",
+      "service": "Electrician",
+      "phone": "0711445566",
+      "price": "1600-2100"
+    },
+    {
+      "id": "41",
+      "name": "Patrick Waweru",
+      "county": "Nyandarua",
+      "service": "Plumber",
+      "phone": "0700456123",
+      "price": "1200-1700"
+    },
+    {
+      "id": "42",
+      "name": "Janet Wangechi",
+      "county": "Nyandarua",
+      "service": "Electrician",
+      "phone": "0723456123",
+      "price": "1500-2000"
+    },
+    {
+      "id": "43",
+      "name": "Vincent Onyango",
+      "county": "Migori",
+      "service": "Plumber",
+      "phone": "0788555123",
+      "price": "1300-1800"
+    },
+    {
+      "id": "44",
+      "name": "Judith Adhiambo",
+      "county": "Migori",
+      "service": "Electrician",
+      "phone": "0700987123",
+      "price": "1600-2100"
+    },
+    {
+      "id": "45",
+      "name": "Hassan Mwajuma",
+      "county": "Kwale",
+      "service": "Plumber",
+      "phone": "0700345611",
+      "price": "1200-1800"
+    },
+    {
+      "id": "46",
+      "name": "Fatuma Ali",
+      "county": "Kwale",
+      "service": "Plumber",
+      "phone": "0745012345",
+      "price": "1600-2100"
+    },
+    {
+      "id": "47",
+      "name": "Salma Omar",
+      "county": "Kwale",
+      "service": "Electrician",
+      "phone": "0711567890",
+      "price": "1300-1900"
+    },
+    {
+      "id": "48",
+      "name": "Juma Salim",
+      "county": "Kwale",
+      "service": "Electrician",
+      "phone": "0733998765",
+      "price": "1700-2200"
+    },
+    {
+      "id": "49",
+      "name": "Abdi Noor",
+      "county": "Lamu",
+      "service": "Plumber",
+      "phone": "0756234567",
+      "price": "1400-2000"
+    },
+    {
+      "id": "50",
+      "name": "Halima Bashir",
+      "county": "Lamu",
+      "service": "Plumber",
+      "phone": "0700789012",
+      "price": "1800-2300"
+    },
+    {
+      "id": "51",
+      "name": "Nasra Mohamed",
+      "county": "Lamu",
+      "service": "Electrician",
+      "phone": "0788345678",
+      "price": "1500-2100"
+    },
+    {
+      "id": "52",
+      "name": "Ali Yusuf",
+      "county": "Lamu",
+      "service": "Electrician",
+      "phone": "0723456789",
+      "price": "1900-2500"
     }
   ],
   "bookings": [
     {
-      "id": "0a93",
-      "providerName": "Eric Mutwiri",
-      "county": "Embu",
-      "time": "4/22/2025, 9:52:34 PM"
-    },
-    {
-      "id": "01da",
-      "providerName": "James Kamau",
-      "county": "Nairobi",
-      "time": "4/23/2025, 12:29:49 AM"
-    },
-    {
-      "id": "91f6",
-      "providerName": "Sarah Wanjiku",
-      "county": "Nairobi",
-      "time": "4/23/2025, 12:30:04 AM"
-    },
-    {
-      "id": "d49d",
-      "providerName": "James Kamau",
-      "county": "Nairobi",
-      "time": "4/23/2025, 12:32:00 AM"
-    },
-    {
-      "id": "47c3",
-      "providerName": "Eric Mutwiri",
-      "county": "Embu",
+      "id": "85e4",
+      "providerId": "33",
+      "providerName": "Ramadhan Yusuf",
+      "service": "Plumber",
+      "county": "Mombasa",
+      "bookingDate": "2025-04-30",
       "timeSlot": "8-10 AM",
-      "bookingDate": "2025-04-24",
-      "bookingTime": "4/23/2025, 1:24:52 AM"
+      "bookingTime": "4/24/2025, 10:56:05 AM"
     },
     {
-      "id": "a76b",
-      "providerName": "Daniel Kiraitu",
-      "county": "Meru",
-      "timeSlot": "11-1 PM",
-      "bookingDate": "2025-04-28",
-      "bookingTime": "4/23/2025, 1:50:59 AM"
-    },
-    {
-      "id": "6d43",
-      "providerName": "Daniel Kiraitu",
-      "county": "Meru",
-      "timeSlot": "11-1 PM",
-      "bookingDate": "2025-04-28",
-      "bookingTime": "4/23/2025, 1:51:08 AM"
+      "id": "1d3e",
+      "providerId": "34",
+      "providerName": "Leila Noor",
+      "service": "Electrician",
+      "county": "Mombasa",
+      "bookingDate": "2025-05-02",
+      "timeSlot": "8-10 AM",
+      "bookingTime": "4/24/2025, 11:01:00 AM"
     }
   ]
 }
