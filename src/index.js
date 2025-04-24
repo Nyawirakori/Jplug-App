@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import About from "./components/About";
 import ContactUs from "./components/ContactUs";
 import BookingPage from './components/BookingPage';
 
@@ -12,10 +11,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element:<App/>
-  },
-  {
-    path:"/about",
-    element:<About/>
   },
   {
     path: "/contact",

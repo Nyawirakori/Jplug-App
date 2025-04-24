@@ -5,10 +5,11 @@ export default function Booking({ county, service }) {
   const [selectedBookingDetails, setSelectedBookingDetails] = useState(null);
   const [activeBookingCardId, setActiveBookingCardId] = useState(null);
   const [cardSpecificData, setCardSpecificData] = useState({});
-  const [minDate] = useState(new Date().toISOString().split("T")[0]);
+  const [minDate] = useState(new Date().toISOString().split("T")[0]);//Date specifications
   const [bookingError, setBookingError] = useState(null);
   const [showProviderCards, setShowProviderCards] = useState(true);
 
+  //GET request for service providers
   useEffect(() => {
     fetch("http://localhost:4000/serviceProviders")
       .then((res) => res.json())
@@ -54,7 +55,7 @@ export default function Booking({ county, service }) {
       timeSlot: selected.time,
       bookingTime: new Date().toLocaleString(),
     };
-
+//POST request-adding bookings to db.json
     fetch("http://localhost:4000/bookings", {
       method: "POST",
       headers: {
@@ -73,7 +74,7 @@ export default function Booking({ county, service }) {
         setBookingError(error.message);
       });
   };
-
+//DELETE Bookings
   const handleCancelBooking = (booking) => {
     fetch(`http://localhost:4000/bookings/${booking.id}`, {
       method: "DELETE",
@@ -170,7 +171,7 @@ export default function Booking({ county, service }) {
       )}
 
       {selectedBookingDetails && (
-        <div className="card shadow-sm p-3 mt-4">
+        <div className="card shadow-sm ">
           <h3>Booking Confirmation</h3>
           <p>
             <strong>Service Provider:</strong>{" "}

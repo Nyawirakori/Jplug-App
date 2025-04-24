@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Booking from "./Booking";
 import NavBar from "./NavBar";
+import Steps from "./Steps";
 
 function BookingPage() {
   const [counties, setCounties] = useState([]);
@@ -32,8 +33,9 @@ function BookingPage() {
   };
 
   return (
-    <div className="container my-5">
+    <div className="container">
       <NavBar />
+     <Steps />
       <h2 className="text-center mb-4">Book a Service Provider</h2>
 
       {/* Booking Filter Section */}
@@ -85,7 +87,7 @@ function BookingPage() {
         </div>
       </div>
 
-      {/* Booking Form */}
+  
       {showProviders && (
         <Booking county={selectedCounty} service={selectedService} />
       )}
