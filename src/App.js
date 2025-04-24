@@ -1,18 +1,16 @@
 import "./App.css";
 import NavBar from "./components/NavBar";
 import Hero from "./components/Hero"; 
-import React, { useState } from "react";
+import React from "react";
+import { useDarkMode } from "./components/DarkModeContext"; 
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(false); // Dark mode
+  const { darkMode, toggleDarkMode } = useDarkMode();
 
   return (
     <div>
-      <NavBar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} /> 
       <Hero />
-      <div className={`container my-4 ${darkMode ? "bg-dark text-white" : ""}`}>
-        
-      </div>
     </div>
   );
 }

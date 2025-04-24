@@ -1,15 +1,14 @@
 import { NavLink } from "react-router-dom";
 import React from "react";
 
-export default function NavBar({ darkMode, setDarkMode }) {
-  const toggleDarkMode = () => setDarkMode(!darkMode);
+export default function NavBar({ darkMode, toggleDarkMode }) {
+
+   const navbarClasses = `navbar sticky-top navbar-expand-lg ${
+    darkMode ? "bg-dark text-light navbar-dark" : "bg-light text-dark navbar-light"
+  }`;
 
   return (
-    <nav
-      className={`navbar navbar-expand-sm ${
-        darkMode ? "bg-dark navbar-dark" : "bg-light navbar-light"
-      }`}
-    >
+     <nav className={navbarClasses}>
       <div className="container-fluid d-flex justify-content-between align-items-center">
         <div className="fw-bold text-primary">JPLUG App</div>
         <div className="d-flex align-items-center gap-3">
@@ -32,9 +31,15 @@ export default function NavBar({ darkMode, setDarkMode }) {
           >
             Contact us
           </NavLink>
-          <button className="btn btn-primary" onClick={toggleDarkMode}>
+         <div className="ms-auto">
+              <button
+                id="dark-mode-toggle"
+                className="btn btn-outline-none"
+                onClick={toggleDarkMode}
+              >
             {darkMode ? "Light Mode" : "Dark Mode"}
           </button>
+          </div>
         </div>
       </div>
     </nav>

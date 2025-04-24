@@ -33,3 +33,39 @@ code {
 .navbar-container {
   margin-bottom: 20px;
 }
+
+{/*dark mode*/}
+/* Light mode (default) */
+.app.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Dark mode */
+.app.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+
+.app.dark-mode .card,
+.app.dark-mode .navbar,
+.app.dark-mode .container,
+.app.dark-mode .form-control {
+  background-color: #1e1e1e !important;
+  color: #f1f1f1 !important;
+  border-color: #444 !important;
+}
+
+.app.dark-mode a {
+  color: #90caf9;
+}
+
+.app.dark-mode .btn {
+  color: #f1f1f1;
+  border-color: #777;
+}
+
+.app.dark-mode .btn:hover {
+  background-color: #333;
+}

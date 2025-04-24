@@ -609,46 +609,6 @@
   ],
   "bookings": [
     {
-      "id": "85e4",
-      "providerId": "33",
-      "providerName": "Ramadhan Yusuf",
-      "service": "Plumber",
-      "county": "Mombasa",
-      "bookingDate": "2025-04-30",
-      "timeSlot": "8-10 AM",
-      "bookingTime": "4/24/2025, 10:56:05 AM"
-    },
-    {
-      "id": "1d3e",
-      "providerId": "34",
-      "providerName": "Leila Noor",
-      "service": "Electrician",
-      "county": "Mombasa",
-      "bookingDate": "2025-05-02",
-      "timeSlot": "8-10 AM",
-      "bookingTime": "4/24/2025, 11:01:00 AM"
-    },
-    {
-      "id": "a5e5",
-      "providerId": "34",
-      "providerName": "Leila Noor",
-      "service": "Electrician",
-      "county": "Mombasa",
-      "bookingDate": "2025-04-30",
-      "timeSlot": "8-10 AM",
-      "bookingTime": "4/24/2025, 1:14:38 PM"
-    },
-    {
-      "id": "a0be",
-      "providerId": "34",
-      "providerName": "Leila Noor",
-      "service": "Electrician",
-      "county": "Mombasa",
-      "bookingDate": "2025-04-30",
-      "timeSlot": "8-10 AM",
-      "bookingTime": "4/24/2025, 1:14:46 PM"
-    },
-    {
       "id": "9a30",
       "providerId": "12",
       "providerName": "Zainab Omar",
@@ -657,26 +617,6 @@
       "bookingDate": "2025-05-02",
       "timeSlot": "11-1 PM",
       "bookingTime": "4/24/2025, 3:19:31 PM"
-    },
-    {
-      "id": "e8ed",
-      "providerId": "33",
-      "providerName": "Ramadhan Yusuf",
-      "service": "Plumber",
-      "county": "Mombasa",
-      "bookingDate": "2025-04-30",
-      "timeSlot": "2-4 PM",
-      "bookingTime": "4/24/2025, 4:08:31 PM"
-    },
-    {
-      "id": "fbbb",
-      "providerId": "12",
-      "providerName": "Zainab Omar",
-      "service": "Electrician",
-      "county": "Mombasa",
-      "bookingDate": "2025-05-03",
-      "timeSlot": "2-4 PM",
-      "bookingTime": "4/24/2025, 8:16:45 PM"
     }
   ]
 }
